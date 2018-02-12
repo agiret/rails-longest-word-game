@@ -1,0 +1,16 @@
+<h1>Games#new</h1>
+<p>Find me in app/views/games/new.html.erb</p>
+<p><%= @letters %></p>
+<ul>
+  <% @letters.split(",").each do |letter| %>
+    <li><%= letter %></li>
+  <% end  %>
+</ul>
+
+<form action="/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="text" name="word" label="What is your longest word?">
+  <input type="submit" value="Play" >
+  <input type="hidden" name="start_time" value="<%= @start_time %>">
+  <input type="hidden" name="grid" value="<%= @letters %>">
+</form>
